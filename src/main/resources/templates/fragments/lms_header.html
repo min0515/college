@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body th:fragment="header">
+	<div class="ui text container" style="padding: 0 120px;">
+		<div class="header item">
+			<a class="link" href="home">Home</a>
+		</div>
+		<div th:if="${session.sessionMember_id} == null" class="header item">
+			<a class="link" href="login">Login</a>
+		</div>
+		<div class="header item">Board</div>
+		<div class="header item">Member</div>
+		<div class="ui pointing dropdown link item">
+			<span class="header item" style="padding: 0px;">수강정보</span> <i
+				class="dropdown icon"></i>
+			<div class="menu">
+				<div class="item">
+					<a class="link" href="classInsert">강의등록</a>
+				</div>
+				<div class="item">
+					<a class="link" href="classAdminListGo">강의관리</a>
+				</div>
+				<div class="item">
+					<a class="link" href="classRegistrationAdminPageGo">수강신청관리</a>
+				</div>
+				<div class="item">
+					<a class="link" href="classRegistrationGo">수강신청</a>
+				</div>
+				<div class="item">
+					<a class="link" href="ClassPreRegistrationGo">수강바구니</a>
+				</div>
+				<div class="item">
+					<a class="link" href="myclassFinalList">수강이력조회</a>
+				</div>
+				<div class="item">
+					<a class="link" href="classSearchList">강의조회</a>
+				</div>
+				<div class="item">
+					<a class="link" href="classSearchListGo">수강신청안내</a>
+				</div>
+			</div>
+		</div>
+		<div class="ui pointing dropdown link item">
+			<span class="header item" style="padding: 0px;">예약</span> <i
+				class="dropdown icon"></i>
+			<div class="menu">
+				<div class="item">
+					<a class="link" href="reservationPageGo">도서관 예약</a>
+				</div>
+				<div class="item">
+					<a class="link" href="spaceReservationPageGo">스터디룸 에약</a>
+				</div>
+				<div class="item">
+					<a class="link" href="myReservationPageGo">내 예약</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:unless="${session.sessionStudent_no==null}">
+		<div class="ui simple dropdown item">
+			<i class="dropdown icon"></i>
+			<div class="menu">
+				<div class="item">
+					<a class="link" href="logout">Logout</a>
+				</div>
+				<div class="item">
+					<a class="link" th:text="${session.sessionStudent_name}"></a>
+				</div>
+				<div class="item">
+					<a class="link" th:text="${session.sessionAbsence_yn}"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
